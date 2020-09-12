@@ -1,0 +1,16 @@
+Language : Cpp
+BasedOnStyle: LLVM
+IndentWidth: 2
+TabWidth : 2
+UseTab : Always
+ColumnLimit : 0
+
+SortIncludes: false
+AllowShortIfStatementsOnASingleLine : false
+AllowShortFunctionsOnASingleLine : Empty
+AlwaysBreakAfterReturnType : None
+AlignAfterOpenBracket : Align
+AlignOperands : true
+AlignTrailingComments : true
+IndentCaseLabels : true
+SpaceAfterCStyleCast : true
