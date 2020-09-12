@@ -1,0 +1,256 @@
+\hypertarget{utf8_8h}{}\doxysection{/run/media/zn/code/\+Git/utf8lib/src/utf8.h File Reference}
+\label{utf8_8h}\index{/run/media/zn/code/Git/utf8lib/src/utf8.h@{/run/media/zn/code/Git/utf8lib/src/utf8.h}}
+
+
+Header file of the library containing all structs and manipulation functions for those structs.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em U\+T\+F-\/8 block of data. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em U\+T\+F-\/8 string of data, basically array of blocks. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em U\+T\+F-\/8 file type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{utf8_8h_a180318ac40230a05fd01392736da9703}\label{utf8_8h_a180318ac40230a05fd01392736da9703}} 
+typedef enum \mbox{\hyperlink{utf8_8h_ac2749be82115653d316c24b649e093bb}{utf8\+\_\+err\+\_\+e}} {\bfseries utf8\+\_\+err\+\_\+t}
+\item 
+\mbox{\Hypertarget{utf8_8h_a7004323a52b48ea04c759ba3e3185eb5}\label{utf8_8h_a7004323a52b48ea04c759ba3e3185eb5}} 
+typedef struct \mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+s}} {\bfseries utf8\+\_\+block\+\_\+t}
+\item 
+\mbox{\Hypertarget{utf8_8h_a2683c3bf60afbce198fe918014aa62ee}\label{utf8_8h_a2683c3bf60afbce198fe918014aa62ee}} 
+typedef struct \mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+s}} {\bfseries utf8\+\_\+string\+\_\+t}
+\item 
+\mbox{\Hypertarget{utf8_8h_a79286ccca1ecdf0a9da1af7262b3be90}\label{utf8_8h_a79286ccca1ecdf0a9da1af7262b3be90}} 
+typedef struct \mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+s}} {\bfseries utf8\+\_\+file\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{utf8_8h_ac2749be82115653d316c24b649e093bb}\label{utf8_8h_ac2749be82115653d316c24b649e093bb}} 
+enum \mbox{\hyperlink{utf8_8h_ac2749be82115653d316c24b649e093bb}{utf8\+\_\+err\+\_\+e}} \{ \newline
+{\bfseries U\+T\+F8\+\_\+\+E\+R\+R\+\_\+\+N\+O\+NE} = 0, 
+{\bfseries U\+T\+F8\+\_\+\+E\+R\+R\+\_\+\+F\+O\+P\+EN}, 
+{\bfseries U\+T\+F8\+\_\+\+E\+R\+R\+\_\+\+A\+L\+L\+OC}, 
+{\bfseries U\+T\+F8\+\_\+\+E\+R\+R\+\_\+\+N\+B\+Y\+T\+ES}, 
+\newline
+{\bfseries U\+T\+F8\+\_\+\+E\+R\+R\+\_\+\+I\+N\+T\+E\+R\+N\+AL}
+ \}
+\begin{DoxyCompactList}\small\item\em Used in functions that may return an error -\/ all functions which return int return some of these options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{utf8_8h_a36ecf6209312d1e593813d7c6dc2748e}{utf8\+\_\+block\+\_\+init}} (\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$block)
+\item 
+unsigned char $\ast$ \mbox{\hyperlink{utf8_8h_a6853d2ab405317fc5b1fd16275bbddaa}{utf8\+\_\+block\+\_\+decode}} (\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$block, unsigned char $\ast$nbytes)
+\item 
+int \mbox{\hyperlink{utf8_8h_a77cfaf46088f4855de8708b487ff9a6e}{utf8\+\_\+block\+\_\+encode}} (\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$block, unsigned char $\ast$data, unsigned char nbytes)
+\item 
+void \mbox{\hyperlink{utf8_8h_ad64dbb3f614ec2f19bd0fb0cf8ef8cca}{utf8\+\_\+block\+\_\+free}} (\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$block)
+\item 
+void \mbox{\hyperlink{utf8_8h_a46c4c7b2c91adc617fd66a68f816950b}{utf8\+\_\+string\+\_\+init}} (\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$str)
+\item 
+int \mbox{\hyperlink{utf8_8h_a9b35679dd14543358b84949eb26db6a9}{utf8\+\_\+string\+\_\+from\+\_\+bytes}} (\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$str, unsigned char $\ast$data, unsigned int nbytes)
+\item 
+int \mbox{\hyperlink{utf8_8h_abd0f708fc40837712c5492392a4eb1b1}{utf8\+\_\+string\+\_\+print}} (\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$str, F\+I\+LE $\ast$out)
+\item 
+void \mbox{\hyperlink{utf8_8h_a6d0d2f69239360f136bed5c493d48708}{utf8\+\_\+string\+\_\+free}} (\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$str)
+\item 
+void \mbox{\hyperlink{utf8_8h_a1ff120ccb9860844a52bb989e5943b48}{utf8\+\_\+file\+\_\+init}} (\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$file)
+\item 
+int \mbox{\hyperlink{utf8_8h_ac6ac0e69648b6570f5dc071fd97c2dc0}{utf8\+\_\+file\+\_\+open}} (\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$file, const char $\ast$fn)
+\item 
+int \mbox{\hyperlink{utf8_8h_adaed97dddff558a3890293a764350320}{utf8\+\_\+file\+\_\+print}} (\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$file, F\+I\+LE $\ast$out)
+\item 
+void \mbox{\hyperlink{utf8_8h_adf802a72578ecadc435ce31992cfe057}{utf8\+\_\+file\+\_\+free}} (\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of the library containing all structs and manipulation functions for those structs. 
+
+\begin{DoxyAuthor}{Author}
+Mateo Cindric 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12 Sep 2020
+\end{DoxyDate}
+Single header utf8 processing library
+\begin{DoxyItemize}
+\item functions for file reading and processing
+\item structs for manipulating utf8 data (strings, blocks, files...) 
+\end{DoxyItemize}
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utf8_8h_a6853d2ab405317fc5b1fd16275bbddaa}\label{utf8_8h_a6853d2ab405317fc5b1fd16275bbddaa}} 
+\index{utf8.h@{utf8.h}!utf8\_block\_decode@{utf8\_block\_decode}}
+\index{utf8\_block\_decode@{utf8\_block\_decode}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_block\_decode()}{utf8\_block\_decode()}}
+{\footnotesize\ttfamily unsigned char$\ast$ utf8\+\_\+block\+\_\+decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$}]{block,  }\item[{unsigned char $\ast$}]{nbytes }\end{DoxyParamCaption})}
+
+Decode an U\+T\+F-\/8 block of data 
+\begin{DoxyParams}{Parameters}
+{\em block} & block to decode \\
+\hline
+{\em nbytes} & variable to which the number of decoded bytes are stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data decoded data with nbytes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utf8_8h_a77cfaf46088f4855de8708b487ff9a6e}\label{utf8_8h_a77cfaf46088f4855de8708b487ff9a6e}} 
+\index{utf8.h@{utf8.h}!utf8\_block\_encode@{utf8\_block\_encode}}
+\index{utf8\_block\_encode@{utf8\_block\_encode}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_block\_encode()}{utf8\_block\_encode()}}
+{\footnotesize\ttfamily int utf8\+\_\+block\+\_\+encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$}]{block,  }\item[{unsigned char $\ast$}]{data,  }\item[{unsigned char}]{nbytes }\end{DoxyParamCaption})}
+
+Encode an U\+T\+F-\/8 block of data 
+\begin{DoxyParams}{Parameters}
+{\em block} & block to encode \\
+\hline
+{\em data} & data to encode into a block \\
+\hline
+{\em nbytes} & number of bytes to encode \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error if any occurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utf8_8h_ad64dbb3f614ec2f19bd0fb0cf8ef8cca}\label{utf8_8h_ad64dbb3f614ec2f19bd0fb0cf8ef8cca}} 
+\index{utf8.h@{utf8.h}!utf8\_block\_free@{utf8\_block\_free}}
+\index{utf8\_block\_free@{utf8\_block\_free}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_block\_free()}{utf8\_block\_free()}}
+{\footnotesize\ttfamily void utf8\+\_\+block\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$}]{block }\end{DoxyParamCaption})}
+
+Free the block -\/ basically init again 
+\begin{DoxyParams}{Parameters}
+{\em block} & block to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utf8_8h_a36ecf6209312d1e593813d7c6dc2748e}\label{utf8_8h_a36ecf6209312d1e593813d7c6dc2748e}} 
+\index{utf8.h@{utf8.h}!utf8\_block\_init@{utf8\_block\_init}}
+\index{utf8\_block\_init@{utf8\_block\_init}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_block\_init()}{utf8\_block\_init()}}
+{\footnotesize\ttfamily void utf8\+\_\+block\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__block__s}{utf8\+\_\+block\+\_\+t}} $\ast$}]{block }\end{DoxyParamCaption})}
+
+Initialize block with size 0 
+\begin{DoxyParams}{Parameters}
+{\em block} & block to init \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utf8_8h_adf802a72578ecadc435ce31992cfe057}\label{utf8_8h_adf802a72578ecadc435ce31992cfe057}} 
+\index{utf8.h@{utf8.h}!utf8\_file\_free@{utf8\_file\_free}}
+\index{utf8\_file\_free@{utf8\_file\_free}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_file\_free()}{utf8\_file\_free()}}
+{\footnotesize\ttfamily void utf8\+\_\+file\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$}]{file }\end{DoxyParamCaption})}
+
+Free file fields 
+\begin{DoxyParams}{Parameters}
+{\em file} & file to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utf8_8h_a1ff120ccb9860844a52bb989e5943b48}\label{utf8_8h_a1ff120ccb9860844a52bb989e5943b48}} 
+\index{utf8.h@{utf8.h}!utf8\_file\_init@{utf8\_file\_init}}
+\index{utf8\_file\_init@{utf8\_file\_init}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_file\_init()}{utf8\_file\_init()}}
+{\footnotesize\ttfamily void utf8\+\_\+file\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$}]{file }\end{DoxyParamCaption})}
+
+Initialize file fields 
+\begin{DoxyParams}{Parameters}
+{\em file} & file to init \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utf8_8h_ac6ac0e69648b6570f5dc071fd97c2dc0}\label{utf8_8h_ac6ac0e69648b6570f5dc071fd97c2dc0}} 
+\index{utf8.h@{utf8.h}!utf8\_file\_open@{utf8\_file\_open}}
+\index{utf8\_file\_open@{utf8\_file\_open}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_file\_open()}{utf8\_file\_open()}}
+{\footnotesize\ttfamily int utf8\+\_\+file\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$}]{file,  }\item[{const char $\ast$}]{fn }\end{DoxyParamCaption})}
+
+Open file and read it as U\+T\+F-\/8 
+\begin{DoxyParams}{Parameters}
+{\em file} & U\+T\+F-\/8 file struct \\
+\hline
+{\em fn} & filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error if any occurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utf8_8h_adaed97dddff558a3890293a764350320}\label{utf8_8h_adaed97dddff558a3890293a764350320}} 
+\index{utf8.h@{utf8.h}!utf8\_file\_print@{utf8\_file\_print}}
+\index{utf8\_file\_print@{utf8\_file\_print}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_file\_print()}{utf8\_file\_print()}}
+{\footnotesize\ttfamily int utf8\+\_\+file\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__file__s}{utf8\+\_\+file\+\_\+t}} $\ast$}]{file,  }\item[{F\+I\+LE $\ast$}]{out }\end{DoxyParamCaption})}
+
+Print utf8 file to a desired output 
+\begin{DoxyParams}{Parameters}
+{\em file} & U\+T\+F-\/8 file struct to print \\
+\hline
+{\em out} & output file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error if any occurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utf8_8h_a6d0d2f69239360f136bed5c493d48708}\label{utf8_8h_a6d0d2f69239360f136bed5c493d48708}} 
+\index{utf8.h@{utf8.h}!utf8\_string\_free@{utf8\_string\_free}}
+\index{utf8\_string\_free@{utf8\_string\_free}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_string\_free()}{utf8\_string\_free()}}
+{\footnotesize\ttfamily void utf8\+\_\+string\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$}]{str }\end{DoxyParamCaption})}
+
+Free blocks and init back to 0 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utf8_8h_a9b35679dd14543358b84949eb26db6a9}\label{utf8_8h_a9b35679dd14543358b84949eb26db6a9}} 
+\index{utf8.h@{utf8.h}!utf8\_string\_from\_bytes@{utf8\_string\_from\_bytes}}
+\index{utf8\_string\_from\_bytes@{utf8\_string\_from\_bytes}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_string\_from\_bytes()}{utf8\_string\_from\_bytes()}}
+{\footnotesize\ttfamily int utf8\+\_\+string\+\_\+from\+\_\+bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$}]{str,  }\item[{unsigned char $\ast$}]{data,  }\item[{unsigned int}]{nbytes }\end{DoxyParamCaption})}
+
+Load and initialize all blocks and create a string 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to create \\
+\hline
+{\em data} & C-\/string which gets converted to U\+T\+F-\/8 data \\
+\hline
+{\em nbytes} & number of bytes that data occupies \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error if any occurs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utf8_8h_a46c4c7b2c91adc617fd66a68f816950b}\label{utf8_8h_a46c4c7b2c91adc617fd66a68f816950b}} 
+\index{utf8.h@{utf8.h}!utf8\_string\_init@{utf8\_string\_init}}
+\index{utf8\_string\_init@{utf8\_string\_init}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_string\_init()}{utf8\_string\_init()}}
+{\footnotesize\ttfamily void utf8\+\_\+string\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$}]{str }\end{DoxyParamCaption})}
+
+Initialize string fields with 0 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to init \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utf8_8h_abd0f708fc40837712c5492392a4eb1b1}\label{utf8_8h_abd0f708fc40837712c5492392a4eb1b1}} 
+\index{utf8.h@{utf8.h}!utf8\_string\_print@{utf8\_string\_print}}
+\index{utf8\_string\_print@{utf8\_string\_print}!utf8.h@{utf8.h}}
+\doxysubsubsection{\texorpdfstring{utf8\_string\_print()}{utf8\_string\_print()}}
+{\footnotesize\ttfamily int utf8\+\_\+string\+\_\+print (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structutf8__string__s}{utf8\+\_\+string\+\_\+t}} $\ast$}]{str,  }\item[{F\+I\+LE $\ast$}]{out }\end{DoxyParamCaption})}
+
+Print a string to a desired output F\+I\+L\+E$\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to print \\
+\hline
+{\em out} & output file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error if any occurs 
+\end{DoxyReturn}
