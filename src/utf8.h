@@ -97,6 +97,12 @@ void utf8_string_init(utf8_string_t *str);
 */
 int utf8_string_from_bytes(utf8_string_t *str, unsigned char *data, unsigned int nbytes);
 
+/** Get utf8 string length
+    @param str string which length is wanted
+    @return string length
+*/
+unsigned int utf8_string_get_length(utf8_string_t *str);
+
 /** Print a string to a desired output FILE*
     @param str string to print
     @param out output file

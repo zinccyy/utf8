@@ -64,15 +64,18 @@ void utf8_string_init(utf8_string_t *str) {
 	str->block_count = 0;
 	str->size = 0;
 }
+
+unsigned int utf8_string_get_length(utf8_string_t *str) {
+	return str->block_count;
+}
+
 int utf8_string_from_bytes(utf8_string_t *str, unsigned char *data, unsigned int nbytes) {
 	int ret = UTF8_ERR_NONE;
 	// allocate blocks with nbytes => assume every block is 1 byte => faster
 	str->blocks = malloc(sizeof(utf8_block_t) * nbytes);
 	if (str->blocks != 0) {
 		str->size = nbytes;
-		// after that copy all contents to blocks and after that just determine how many bytes does one character take up
 		// if needed => realloc at the end for how many blocks counted
-		memcpy(str->blocks, data, nbytes);
 		unsigned char *ptr = data;
 		while (*ptr) {
 			// walk through the whole file once and copy contents of characters
