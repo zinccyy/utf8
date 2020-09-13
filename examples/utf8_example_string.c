@@ -1,6 +1,7 @@
 #include <utf8.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
 	int ret = UTF8_ERR_NONE;
@@ -9,6 +10,10 @@ int main(int argc, char **argv) {
 	utf8_string_init(&str);
 
 	utf8_string_from_bytes(&str, (unsigned char *) data, strlen(data));
+
+	unsigned char *c_str = utf8_string_get_C_str(&str);
+	fprintf(stdout, "C_STR: %s\n", c_str);
+	free(c_str);
 
 	utf8_string_print(&str, stdout);
 	fprintf(stdout, "\n");

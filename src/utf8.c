@@ -79,6 +79,20 @@ int utf8_string_from_bytes(utf8_string_t *str, unsigned char *data, unsigned int
 	return ret;
 }
 
+unsigned char *utf8_string_get_C_str(utf8_string_t *str) {
+	unsigned char *buff = malloc(sizeof(unsigned char) * (str->size + 1));
+	if (buff) {
+		char *ptr = buff;
+		for (unsigned int i = 0; i < str->block_count; i++) {
+			memcpy(ptr, str->blocks[i].data, str->blocks[i].nbytes);
+			ptr += str->blocks[i].nbytes;
+		}
+		// end with 0
+		*ptr = 0;
+	}
+	return buff;
+}
+
 int utf8_string_print(utf8_string_t *str, FILE *out) {
 	// iterate blocks and output each one
 	utf8_block_t *block = 0;

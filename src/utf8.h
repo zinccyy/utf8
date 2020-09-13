@@ -98,6 +98,12 @@ int utf8_string_from_bytes(utf8_string_t *str, unsigned char *data, unsigned int
 */
 unsigned int utf8_string_get_length(utf8_string_t *str);
 
+/** Get C array of bytes from a utf8 string object
+    @param str string to get
+    @return allocated array of unsigned chars containing str data
+*/
+unsigned char *utf8_string_get_C_str(utf8_string_t *str);
+
 /** Print a string to a desired output FILE*
     @param str string to print
     @param out output file
