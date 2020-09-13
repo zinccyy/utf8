@@ -12,43 +12,16 @@ unsigned char *utf8_block_decode(utf8_block_t *block, unsigned char *nbytes) {
 	*nbytes = 0;
 	if (data != 0) {
 		*nbytes = block->nbytes;
-		switch (*nbytes) {
-			case 1:
-				*data = block->data.b1;
-				break;
-			case 2:
-				memcpy(data, block->data.b2, *nbytes);
-				break;
-			case 3:
-				memcpy(data, block->data.b3, *nbytes);
-				break;
-			case 4:
-				memcpy(data, block->data.b4, *nbytes);
-				break;
-			default:
-				break;
-		}
+		memcpy(data, block->data, block->nbytes);
 	}
 	return data;
 }
 int utf8_block_encode(utf8_block_t *block, unsigned char *data, unsigned char nbytes) {
 	int ret = UTF8_ERR_NONE;
-	switch (nbytes) {
-		case 1:
-			block->data.b1 = *data;
-			break;
-		case 2:
-			memcpy(block->data.b2, data, nbytes);
-			break;
-		case 3:
-			memcpy(block->data.b3, data, nbytes);
-			break;
-		case 4:
-			memcpy(block->data.b4, data, nbytes);
-			break;
-		default:
-			ret = UTF8_ERR_NBYTES;
-			break;
+	if (nbytes >= 1 && nbytes <= 4) {
+		memcpy(block->data, data, nbytes);
+	} else {
+		ret = UTF8_ERR_NBYTES;
 	}
 	return ret;
 }
@@ -113,16 +86,16 @@ int utf8_string_print(utf8_string_t *str, FILE *out) {
 		block = &str->blocks[i];
 		switch (block->nbytes) {
 			case 1:
-				fprintf(out, "%c", block->data.b1);
+				fprintf(out, "%c", block->data[0]);
 				break;
 			case 2:
-				fprintf(out, "%c%c", block->data.b2[0], block->data.b2[1]);
+				fprintf(out, "%c%c", block->data[0], block->data[1]);
 				break;
 			case 3:
-				fprintf(out, "%c%c%c", block->data.b3[0], block->data.b3[1], block->data.b3[2]);
+				fprintf(out, "%c%c%c", block->data[0], block->data[1], block->data[2]);
 				break;
 			case 4:
-				fprintf(out, "%c%c%c%c", block->data.b4[0], block->data.b4[1], block->data.b4[2], block->data.b4[3]);
+				fprintf(out, "%c%c%c%c", block->data[0], block->data[1], block->data[2], block->data[3]);
 				break;
 		}
 	}

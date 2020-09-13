@@ -32,17 +32,12 @@ typedef struct utf8_file_s utf8_file_t;
 
 /** @brief UTF-8 block of data
 
-    1 - 4 bytes in size
+    1 - 4 bytes in size; the struct for a character using 5 bytes (speed)
     @author Mateo Cindric
     @date September 2020
 */
 struct utf8_block_s {
-	union {
-		unsigned char b1;
-		unsigned char b2[2];
-		unsigned char b3[3];
-		unsigned char b4[4];
-	} data;
+	unsigned char data[4];
 	unsigned char nbytes;
 };
 
